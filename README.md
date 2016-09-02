@@ -12,6 +12,8 @@ The following is a list of resources we used to accomplish this project:
 - [Huffington Post API](http://elections.huffingtonpost.com/pollster/api)
 - [d3](https://d3js.org/)
 - Pulled from SociallyCompute's [Github Repository](https://github.com/SociallyCompute/MizzouSENG)
+- [Github](https://github.com)
+
 
 
 ### Description
