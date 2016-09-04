@@ -47,8 +47,11 @@
                         .style("width", function(candidate) {
                             return candidate.value * 10 + "px";
                         })
-                        .text(function(candidate) {return candidate.value + "%"; });
-
+                        .text(function(candidate) {
+                        var value = parseFloat(candidate.value); 
+                        var v = value.toFixed(2)
+                        return v + "%"; 
+                    });
                 
             }, datatype="jsonp");
             console.log("completed");
@@ -66,6 +69,7 @@
 
                     var candidateBar = d3.select("#graph").selectAll("div").data(data.estimates),
                         candidateWrapper = candidateBar.enter().append("div").classed("group", true);
+                    
 
                     candidateWrapper.append("div")
                         .classed("choice", true)
@@ -80,7 +84,13 @@
                         .style("width", function(candidate) {
                             return candidate.value * 10 + "px";
                         })
-                        .text(function(candidate) {return candidate.value + "%"; });
+                        
+                        
+                        .text(function(candidate) {
+                        var value = parseFloat(candidate.value); 
+                        var v = value.toFixed(2)
+                        return v + "%"; 
+                    });
 
                 
             }, datatype="jsonp");
