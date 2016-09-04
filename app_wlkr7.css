@@ -1,0 +1,33 @@
+body {
+    background-color: lightgrey;
+}
+#graph .choice {
+    float: left;
+    font-family: arial;
+    font-size: 1.5em;
+    min-width: 200px;
+    text-align: right;
+    margin: 8px 5px;
+}
+#graph .barGOP {
+    width: 0;
+    height: 35px;
+    background-color: #FF3300;
+    margin: 5px;
+    float: left;
+}
+
+#graph .barDEM {
+    width: 0;
+    height: 35px;
+    background-color: #6633FF;
+    margin: 5px;
+    float: left;
+}
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
