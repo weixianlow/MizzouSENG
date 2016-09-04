@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presidential Primary Data 2016</title>
+    <link href="app.css" rel="stylesheet" type="text/css">
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="d3.v3.min.js"></script>
+</head>
+<body>
+    <div id="menu" >
+    
+    <button type="button" onclick="loadgop()">Republican</button>
+    <button type="button" onclick="loaddem()">Democratic</button>
+    
+    
+    </div>
+    <div id="graph"></div>
+   
+    
+    <script>
+        function loadgop(){
+            console.log("Started");
+            $("#graph").empty();
+            console.log("Cleared Screen");
+            var url = "http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary?callback=?pollstercallback";
+
+            
+            $.post(url, function(data) {
+
+                    var candidateBarGOP = d3.select("#graph").selectAll("div").data(data.estimates),
+                        candidateWrapperGOP = candidateBarGOP.enter().append("div").classed("group", true);
+
+                    candidateWrapperGOP.append("div")
+                        .classed("choice", true)
+                        .text(function(candidate) {
+                            return candidate.choice + " ";
+                        });
+
+                    candidateWrapperGOP.append("div")
+                        .classed("bar", true)
+                        .transition()
+                        .duration(1000)
+                        .style("width", function(candidate) {
+                            return candidate.value * 10 + "px";
+                        })
+                        .text(function(candidate) {return candidate.value + "%"; });
+
+                
+            }, datatype="jsonp");
+            console.log("completed");
+
+        };
+        
+        function loaddem(){
+            console.log("Started");
+            $("#graph").empty();
+            console.log("Cleared Screen");
+            var url = "http://elections.huffingtonpost.com/pollster/api/charts/2016-national-democratic-primary?callback=?pollstercallback";
+
+            
+            $.post(url, function(data) {
+
+                    var candidateBar = d3.select("#graph").selectAll("div").data(data.estimates),
+                        candidateWrapper = candidateBar.enter().append("div").classed("group", true);
+
+                    candidateWrapper.append("div")
+                        .classed("choice", true)
+                        .text(function(candidate) {
+                            return candidate.choice + " ";
+                        });
+
+                    candidateWrapper.append("div")
+                        .classed("bar", true)
+                        .transition()
+                        .duration(1000)
+                        .style("width", function(candidate) {
+                            return candidate.value * 10 + "px";
+                        })
+                        .text(function(candidate) {return candidate.value + "%"; });
+
+                
+            }, datatype="jsonp");
+            console.log("completed");
+
+        };
+        
+        
+
+
+
+
+        </script>
+    
+    
+    
+    
+</body>
+</html>
