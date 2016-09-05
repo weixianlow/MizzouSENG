@@ -1,0 +1,25 @@
+body {
+    background-color: #cccccc;
+}
+#graph .choice {
+    float: left;
+    font-family: arial;
+    font-size: 1.5em;
+    min-width: 150px;
+    text-align: right;
+    margin-right: 30px;
+}
+#graph .bar {
+    width: 0;
+    height: 35px;
+    background-color: coral;
+    margin: 5px;
+    float: left;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#graph .choice {
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presidential Primary Data 2016</title>
+    <link href="app_awwxbb.css" rel="stylesheet" type="text/css">
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="d3.v3.min.js"></script>
+</head>
+<body>
+    
+    <p>Select a party</p>
+    <button type="button" onclick="loadParty(0)">Republican</button>
+    <button type="button" onclick="loadParty(1)">Democratic</button>
+    <div id="Title"></div>
+    <div id="graph"></div>
+    
+    <script>
+        loadParty(0);
+        function loadParty(party)
+        {
+            $("#graph").empty();
+            var url;
+            if (party == 0)
+                url = "http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary";
+            else
+                url = "http://elections.huffingtonpost.com/pollster/api/charts/2016-national-democratic-primary?callback=?pollstercallback";
+
+            
+            $.ajax(url, {
+                dataType: "jsonp",
+                jsonpCallback: "pollsterCallback",
+                cache: true,
+                success: function(data) {
+                    
+                    if (party == 0)
+                    {
+                        var title = d3.select("#Title");
+                        title.html("Selected: Republican");
+                    } else
+                    {
+                        var title = d3.select("#Title");
+                        title.html("Selected: Democratic");
+                    }
+
+                    var candidateBar = d3.select("#graph").selectAll("div").data(data.estimates),
+                        candidateWrapper = candidateBar.enter().append("div").classed("group", true);
+                    
+                    candidateWrapper.append("div")
+                        .classed("choice", true)
+                        .text(function(candidate) {
+                            return candidate.choice;
+                        });
+                    
+                    candidateWrapper.append("div")
+                        .classed("bar", true)
+                        .transition()
+                        .duration(1000)
+                        .style("width", function(candidate) {
+                            return candidate.value * 10 + "px";
+                        })
+                        .text(function(candidate) {
+                        var value = parseFloat(candidate.value); 
+                        var v = value.toFixed(2)
+                        return v + "%";
+                    });
+                    
+                }
+            });
+        }
+
+        
+    </script>
+</body>
+</html>
