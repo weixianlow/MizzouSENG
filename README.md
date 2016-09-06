@@ -25,3 +25,7 @@ Poll data are fetched by using a PUSH request. By selecting either the Democrati
 ####index_awwxbb.html (Alex Wilhelm)
 
 The only difference in the code is the url that is called using the post.  So only adding a few lines to the original I can get a dramatic difference.  Cleaning up the percentages and removing one, offers a cleaner look and labeling at the top helps the user understand which page they are looking at.
+
+####index_kewkr8.html (Kyle Whitney)
+
+My code is tweeked just a little it uses get instead of post because the data doesnt need to be post. I also cleaned up the percentages and made the page look cleaner.
