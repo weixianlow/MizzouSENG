@@ -20,7 +20,7 @@ The following is a list of resources we used to accomplish this project:
 
 ####index_wlkr7.html (Wei Xian Low)
 
-Poll data are fetched by using a PUSH request. By selecting either the Democratic button or the Republican button, the website will then submit a PUSH request to the Huffington Post API to fetch the desired poll data. After fetching the data. using d3, the data is then illustrated using a bar graph to show the individual percentage. jQuery and d3 is actively being used in this website. 
+Poll data are fetched by using a POST request. By selecting either the Democratic button or the Republican button, the website will then submit a POST request to the Huffington Post API to fetch the desired poll data. After fetching the data. using d3, the data is then illustrated using a bar graph to show the individual percentage. jQuery and d3 is actively being used in this website. 
 
 ####index_awwxbb.html (Alex Wilhelm)
 
